@@ -1,0 +1,101 @@
+aid: intelerad
+name: Intelerad
+review:
+  question: Does Intelerad expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-05'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Intelerad's documented public developer
+    surface - the InteleShare / Ambra "v3 Services" API and the Storage API - is
+    a request/response REST-like interface over HTTPS (RPC-style POST/GET actions
+    that return a status of OK or ERROR). There is no documented public WebSocket
+    (ws:// or wss://) or server-push transport on Intelerad's own API. Real-time
+    and event behavior is delivered through webhooks (server-to-endpoint HTTP
+    callbacks) and through standards-based DICOM / HL7 message routing via the
+    InteleShare Gateway - none of which are WebSocket surfaces to model.
+findings:
+  summary: |
+    Intelerad does not publish a documented public WebSocket API. Intelerad is an
+    enterprise medical imaging vendor (PACS, viewer, VNA, and the InteleShare /
+    Ambra cloud image-exchange platform formed after acquiring Ambra Health in
+    2021). Its publicly documented developer API is the InteleShare / Ambra "v3
+    Services" REST-like API (base https://access.dicomgrid.com/api/v3, also
+    access.ambrahealth.com) plus a Storage API for image binaries. Authentication
+    uses a session id (sid), HTTP Basic, or OAuth. DICOM instances are also
+    reachable over the DICOMweb standard (WADO-RS / QIDO-RS / STOW-RS). Clinical
+    integration runs over HL7 v2 (ORM / ORU / ADT) and FHIR via the Gateway. All
+    of these are request/response or message-routing surfaces - none is a
+    documented public WebSocket endpoint.
+  accessModel: |
+    The v3 Services and Storage APIs are publicly DOCUMENTED, but USAGE is
+    account- and contract-gated: a provisioned InteleShare / Ambra account and
+    role/namespace permissions are required, and there is no open self-service
+    sign-up or public pricing. The core PACS / RIS / viewer products are
+    partner/contract-gated with no open public developer portal; they are
+    integrated through the Gateway using DICOM, DICOMweb, HL7, and FHIR.
+  endpointsModeled: true
+  standards:
+    - DICOM
+    - DICOMweb (WADO-RS, QIDO-RS, STOW-RS)
+    - HL7 v2 (ORM, ORU, ADT)
+    - FHIR
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://access.dicomgrid.com/api/v3
+      documented: true
+      note: InteleShare / Ambra v3 Services API - RPC-style POST/GET actions returning status OK/ERROR. Auth via sid, Basic, or OAuth.
+    - protocol: REST
+      scheme: https
+      baseURL: https://access.dicomgrid.com/api/v3/storage
+      documented: true
+      note: Storage API for DICOM image / study binaries (upload, retrieve, frames, thumbnails).
+    - protocol: DICOMweb
+      scheme: https
+      documented: true
+      note: WADO-RS retrieve, QIDO-RS query, STOW-RS store for standards-based DICOM instance access.
+    - protocol: HL7
+      scheme: mllp/https
+      documented: true
+      note: ORM / ORU / ADT message exchange via the InteleShare Gateway. Standards messaging, not a WebSocket.
+    - protocol: Webhook
+      scheme: https
+      documented: true
+      note: Webhooks POST platform events to a configured HTTP endpoint. Server-to-endpoint HTTP, not WebSocket.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented anywhere in Intelerad's public v3 Services or Storage API reference as of the review date.
+sources:
+  - url: https://access.dicomgrid.com/api/v3/api.html
+    type: APIReference
+    note: InteleShare / Ambra v3 Services public API - resource groups (Session, Study, Patient, Order, Report, HL7, Node, Destination, Route, Webhook, Namespace, Account), auth (sid/Basic/OAuth), status OK/ERROR, HTTP 401/405/412. All REST; no WebSocket.
+  - url: https://access.dicomgrid.com/api/v3/storage/storage_api.html
+    type: APIReference
+    note: Storage API for DICOM image / study binaries.
+  - url: https://www.intelerad.com/en/interoperability/
+    type: Documentation
+    note: DICOM and HL7 connectivity, Gateway routing, EHR integrations (Epic, Cerner, Athena), zero-footprint FDA-cleared viewer.
+  - url: https://www.intelerad.com/en/all-products/inteleshare/
+    type: Documentation
+    note: InteleShare cloud image-sharing platform overview (formerly Ambra Image Exchange).
+  - url: https://www.intelerad.com/en/press-releases/ambra-acquisiton/
+    type: PressRelease
+    note: Intelerad and Ambra Health combine (2021) to form a cloud PACS / enterprise imaging leader.
+  - url: https://www.intelerad.com/en/wp-content/uploads/sites/2/2024/05/InteleShare-3.24.2.0-HL7-Guide.pdf
+    type: Documentation
+    note: InteleShare HL7 Guide - inbound/outbound ORM, ORU, ADT via InteleShare Gateway.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists on Intelerad's own public API. The
+    documented developer surface (InteleShare / Ambra v3 Services + Storage API)
+    is request/response REST, with DICOMweb, HL7, and FHIR for standards-based
+    interoperability and webhooks for event callbacks. No AsyncAPI document was
+    created because there is no server-push WebSocket transport on Intelerad's own
+    API to model. The apis.yml logical APIs and OpenAPI are honestly modeled
+    (endpointsModeled: true) from the public reference, since no first-party
+    OpenAPI is published and usage is account/contract-gated.

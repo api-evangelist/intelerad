@@ -1,0 +1,62 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Intelerad
+providerId: intelerad
+created: '2026-07-05'
+modified: '2026-07-05'
+reconciled: false
+tags:
+- Medical Imaging
+- PACS
+- Enterprise Imaging
+- Image Exchange
+- Plans
+description: >-
+  Intelerad does not publish public, self-service pricing for its enterprise
+  imaging platform or for API access. Products (IntelePACS, InteleViewer,
+  InteleShare / Ambra image exchange, VNA) are sold as contracted enterprise
+  and health-system agreements, typically priced by deployment scope, study /
+  image volume, storage, modules, and integrations. API and developer access to
+  the InteleShare / Ambra v3 Services and Storage APIs is provisioned as part of
+  a platform contract rather than as a standalone paid API product. Pricing is
+  quote-based through Intelerad sales.
+notes: >-
+  No public price points were available at the review date. Prices, packaging,
+  and API entitlements are established per contract - book a demo or contact
+  Intelerad sales. Do not treat any figure here as authoritative.
+sources:
+- https://www.intelerad.com/en/all-products/inteleshare/
+- https://www.intelerad.com/en/contact-us/
+- https://www.intelerad.com/en/book-a-demo/
+plans:
+- id: intelerad-enterprise
+  name: Enterprise / Custom (Contact Sales)
+  type: enterprise
+  description: >-
+    Contracted enterprise imaging agreement covering the licensed products
+    (PACS, viewer, VNA, InteleShare image exchange) and API / integration
+    access. Priced per deployment scope, study and image volume, storage,
+    modules, and interoperability needs. Includes API access to the InteleShare
+    / Ambra v3 Services and Storage APIs where entitled.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: PACS and Enterprise Imaging Platform
+  - name: InteleShare / Ambra Image Exchange
+  - name: v3 Services and Storage API Access
+  - name: DICOM / DICOMweb / HL7 / FHIR Interoperability
+  - name: EHR / RIS Integrations
+  - name: Support and SLAs
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

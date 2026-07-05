@@ -1,0 +1,59 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Intelerad
+providerId: intelerad
+created: '2026-07-05'
+modified: '2026-07-05'
+reconciled: false
+tags:
+- Medical Imaging
+- PACS
+- Image Exchange
+- Rate Limiting
+- Quotas
+description: >-
+  Intelerad does not publish fixed numeric rate limits for the InteleShare /
+  Ambra v3 Services or Storage APIs in the public reference. Access is gated by
+  session (sid), Basic, or OAuth authentication and by per-account, per-role,
+  and per-namespace permissions rather than by a documented public per-minute
+  request cap. Practical throughput is bounded by account entitlement and by the
+  study / image volume of the contracted deployment. The v3 API signals errors
+  with a status of "ERROR" plus HTTP codes such as 401 (authorization), 405
+  (invalid method), and 412 (precondition failed).
+notes: >-
+  Numeric per-account or per-endpoint limits are not published as of the review
+  date and would be established by contract / account configuration. Confirm any
+  throttling behavior and quotas with Intelerad during onboarding. Clients should
+  implement exponential backoff with jitter.
+sources:
+- https://access.dicomgrid.com/api/v3/api.html
+- https://www.intelerad.com/en/interoperability/
+responseCodes:
+  unauthorized: 401
+  invalidMethod: 405
+  preconditionFailed: 412
+limits:
+- name: v3 Services API Requests
+  scope: account
+  metric: requests
+  limit: not published
+  notes: No fixed numeric request-rate limit is documented; access governed by auth, roles, and namespace permissions.
+- name: Storage API Throughput
+  scope: account
+  metric: bytes
+  limit: not published
+  notes: Image upload / retrieve throughput bounded by account entitlement and deployment scope.
+- name: DICOMweb Access
+  scope: account
+  metric: requests
+  limit: not published
+  notes: WADO-RS / QIDO-RS / STOW-RS access governed by the same authentication and permission model.
+policies:
+- name: Permission-Scoped Access
+  description: Access is controlled by a role/permission matrix (Admin, User, PHR, Anonymous) and by namespace scoping rather than a global public rate limit.
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter and handle 401 / 405 / 412 responses and ERROR status payloads gracefully.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
