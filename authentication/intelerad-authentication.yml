@@ -1,0 +1,29 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/intelerad-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - query
+schemes:
+- name: sid
+  type: apiKey
+  in: query
+  parameter: sid
+  description: Session id obtained from /session/login. May also be supplied as a request field
+    depending on the endpoint.
+  sources:
+  - openapi/intelerad-openapi.yml
+- name: basicAuth
+  type: http
+  scheme: basic
+  sources:
+  - openapi/intelerad-openapi.yml
+- name: oauth
+  type: http
+  scheme: bearer
+  description: OAuth bearer token for third-party integrations.
+  sources:
+  - openapi/intelerad-openapi.yml

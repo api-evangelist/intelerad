@@ -187,6 +187,12 @@ apis:
     API tokens. Includes session management (login/logout, OAuth, CSRF). Endpoints are
     modeled from the public v3 Services API reference.
 common:
+- type: TrustCenter
+  url: security/intelerad-trust-center.yml
+- type: DomainSecurity
+  url: security/intelerad-domain-security.yml
+- type: Authentication
+  url: authentication/intelerad-authentication.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/intelerad-medical-systems
 - type: Website
