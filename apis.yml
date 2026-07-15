@@ -187,6 +187,8 @@ apis:
     API tokens. Includes session management (login/logout, OAuth, CSRF). Endpoints are
     modeled from the public v3 Services API reference.
 common:
+- type: AgenticAccess
+  url: agentic-access/intelerad-agentic-access.yml
 - type: TrustCenter
   url: security/intelerad-trust-center.yml
 - type: DomainSecurity
