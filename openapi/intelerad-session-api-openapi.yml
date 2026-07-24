@@ -1,0 +1,76 @@
+openapi: 3.0.3
+info:
+  title: InteleShare / Ambra v3 Services API (Modeled) HL7 Session API
+  version: v3
+  x-endpoints-modeled: true
+  description: 'MODELED OpenAPI for the Intelerad InteleShare / Ambra "v3 Services" public API (formerly Ambra Health / DICOM Grid). The v3 API is a documented public REST-like interface: clients POST (or GET) to RPC-style action endpoints under a resource namespace, and every response includes a `status` field of "OK" or "ERROR". Authentication uses a session id (`sid`) obtained from /session/login, HTTP Basic auth, or OAuth tokens for third-party integrations. DICOM instance access is also available over the DICOMweb standard (WADO-RS / QIDO-RS / STOW-RS).
+
+    This document is HONESTLY MODELED from the public API reference at https://access.dicomgrid.com/api/v3/api.html and the InteleShare HL7 Guide. Exact request/response schemas, required parameters, and per-endpoint permissions are defined by Intelerad''s authoritative reference and vary by account entitlement; treat the paths below as a representative, not exhaustive or byte-exact, surface.'
+  contact:
+    name: Intelerad Medical Systems
+    url: https://www.intelerad.com/en/contact-us/
+servers:
+- url: https://access.dicomgrid.com/api/v3
+  description: InteleShare / Ambra v3 Services API (public cloud; account-specific hosts also exist, e.g. https://access.ambrahealth.com/api/v3)
+security:
+- sid: []
+- basicAuth: []
+- oauth: []
+tags:
+- name: Session
+paths:
+  /session/login:
+    post:
+      tags:
+      - Session
+      summary: Authenticate and obtain a session id (sid)
+      responses:
+        '200':
+          description: OK response containing a session id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+  /session/logout:
+    post:
+      tags:
+      - Session
+      summary: Invalidate the current session
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+components:
+  schemas:
+    StatusResponse:
+      type: object
+      description: Every v3 Services response includes a status field of OK or ERROR.
+      required:
+      - status
+      properties:
+        status:
+          type: string
+          enum:
+          - OK
+          - ERROR
+        error_type:
+          type: string
+          description: Present when status is ERROR.
+        error_subtype:
+          type: string
+  securitySchemes:
+    sid:
+      type: apiKey
+      in: query
+      name: sid
+      description: Session id obtained from /session/login. May also be supplied as a request field depending on the endpoint.
+    basicAuth:
+      type: http
+      scheme: basic
+    oauth:
+      type: http
+      scheme: bearer
+      description: OAuth bearer token for third-party integrations.
