@@ -15,7 +15,20 @@ description: Intelerad Medical Systems is an enterprise medical imaging company 
   EHR/RIS integrations (Epic, Cerner, Athena). Core PACS/RIS APIs are partner- and
   contract-gated; the InteleShare / Ambra v3 API is the publicly documented developer
   surface.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: enterprise
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/intelerad.png
 tags:
 - Medical Imaging
 - PACS
@@ -32,160 +45,177 @@ created: '2026-07-05'
 modified: '2026-07-05'
 specificationVersion: '0.19'
 apis:
-- aid: intelerad:intelerad-studies-api
-  name: InteleShare Studies API
-  tags:
-  - Studies
-  - DICOM
-  - DICOMweb
-  - Imaging
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://access.dicomgrid.com/api/v3/api.html
-  baseURL: https://access.dicomgrid.com/api/v3
-  properties:
-  - url: https://access.dicomgrid.com/api/v3/api.html
-    type: APIReference
-  - url: https://www.intelerad.com/en/interoperability/
-    type: Documentation
-  - url: openapi/intelerad-openapi.yml
-    type: OpenAPI
-  description: Manage DICOM studies in the InteleShare / Ambra cloud - list, get,
-    share, route, tag, and delete studies, retrieve study metadata and images, and
-    push or pull pixel data. DICOM instance access is also available over the DICOMweb
-    standard (WADO-RS retrieve, QIDO-RS query, STOW-RS store). Endpoints are modeled
-    from the public v3 Services API reference (RPC-style POST actions under a
-    namespace).
-- aid: intelerad:intelerad-storage-api
-  name: InteleShare Storage API
-  tags:
-  - Storage
-  - DICOMweb
-  - Images
-  - Pixel Data
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://access.dicomgrid.com/api/v3/storage/storage_api.html
-  baseURL: https://access.dicomgrid.com/api/v3/storage
-  properties:
-  - url: https://access.dicomgrid.com/api/v3/storage/storage_api.html
-    type: APIReference
-  - url: openapi/intelerad-openapi.yml
-    type: OpenAPI
-  description: The Storage API handles the raw DICOM image and study binary layer -
-    upload (STOW-style ingest), retrieve rendered or original images and frames, wrap
-    and unwrap DICOM, and manage thumbnails. Complements the Services API, which
-    handles metadata and workflow. Endpoints are modeled from the public Storage API
-    reference.
-- aid: intelerad:intelerad-patients-api
-  name: InteleShare Patients API
-  tags:
-  - Patients
-  - Demographics
-  - PHI
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://access.dicomgrid.com/api/v3/api.html
-  baseURL: https://access.dicomgrid.com/api/v3
-  properties:
-  - url: https://access.dicomgrid.com/api/v3/api.html
-    type: APIReference
-  - url: openapi/intelerad-openapi.yml
-    type: OpenAPI
-  description: Create, list, get, and update patient records and demographics, manage
-    PHI and patient-portal (PHR) access, and reconcile / normalize patient identity
-    across sources. Endpoints are modeled from the public v3 Services API reference.
-- aid: intelerad:intelerad-worklist-orders-api
-  name: InteleShare Orders and Worklist API
-  tags:
-  - Orders
-  - Worklist
-  - Scheduling
-  - RIS
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://access.dicomgrid.com/api/v3/api.html
-  baseURL: https://access.dicomgrid.com/api/v3
-  properties:
-  - url: https://access.dicomgrid.com/api/v3/api.html
-    type: APIReference
-  - url: openapi/intelerad-openapi.yml
-    type: OpenAPI
-  description: Manage healthcare orders and scheduled procedures that drive the
-    radiology worklist - create, list, get, update, and cancel orders, typically fed
-    by inbound HL7 ORM order messages. Endpoints are modeled from the public v3
-    Services API reference.
-- aid: intelerad:intelerad-reports-api
-  name: InteleShare Reports API
-  tags:
-  - Reports
-  - Radiology
-  - Templates
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://access.dicomgrid.com/api/v3/api.html
-  baseURL: https://access.dicomgrid.com/api/v3
-  properties:
-  - url: https://access.dicomgrid.com/api/v3/api.html
-    type: APIReference
-  - url: openapi/intelerad-openapi.yml
-    type: OpenAPI
-  description: Create, list, get, and publish radiology reports and report templates
-    attached to a study, and exchange results via HL7 ORU result messages. Endpoints
-    are modeled from the public v3 Services API reference.
 - aid: intelerad:intelerad-hl7-api
-  name: InteleShare HL7 Integration API
+  name: Intelerad HL7 API
+  description: The HL7 API from Intelerad — 1 operation(s) for hl7.
+  humanURL: https://access.dicomgrid.com/api/v3/api.html
+  baseURL: https://access.dicomgrid.com/api/v3
   tags:
   - HL7
-  - Interoperability
-  - Messaging
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.intelerad.com/en/wp-content/uploads/sites/2/2024/05/InteleShare-3.24.2.0-HL7-Guide.pdf
-  baseURL: https://access.dicomgrid.com/api/v3
   properties:
-  - url: https://access.dicomgrid.com/api/v3/api.html
-    type: APIReference
-  - url: https://www.intelerad.com/en/wp-content/uploads/sites/2/2024/05/InteleShare-3.24.2.0-HL7-Guide.pdf
-    type: Documentation
-  - url: openapi/intelerad-openapi.yml
-    type: OpenAPI
-  description: Configure HL7 message templates and transforms and exchange clinical
-    data via the InteleShare Gateway - inbound and outbound ORM (orders), ORU
-    (results/reports), and ADT (patient demographics) messages. Endpoints are modeled
-    from the public v3 Services API reference and the InteleShare HL7 Guide.
-- aid: intelerad:intelerad-webhooks-api
-  name: InteleShare Webhooks and Routing API
-  tags:
-  - Webhooks
-  - Routing
-  - Events
-  - Destinations
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  - type: OpenAPI
+    url: openapi/intelerad-hl7-api-openapi.yml
+  - type: APIReference
+    url: https://access.dicomgrid.com/api/v3/api.html
+  - type: Documentation
+    url: https://www.intelerad.com/en/interoperability/
+  - type: APIReference
+    url: https://access.dicomgrid.com/api/v3/storage/storage_api.html
+  - type: Documentation
+    url: >-
+      https://www.intelerad.com/en/wp-content/uploads/sites/2/2024/05/InteleShare-3.24.2.0-HL7-Guide.pdf
+- aid: intelerad:intelerad-namespace-api
+  name: Intelerad Namespace API
+  description: The Namespace API from Intelerad — 1 operation(s) for namespace.
   humanURL: https://access.dicomgrid.com/api/v3/api.html
   baseURL: https://access.dicomgrid.com/api/v3
-  properties:
-  - url: https://access.dicomgrid.com/api/v3/api.html
-    type: APIReference
-  - url: openapi/intelerad-openapi.yml
-    type: OpenAPI
-  description: Register webhooks for platform events and manage study distribution -
-    routes, destinations (query/retrieve targets), and storage nodes that move studies
-    between the cloud and connected DICOM systems. Endpoints are modeled from the
-    public v3 Services API reference.
-- aid: intelerad:intelerad-namespaces-accounts-api
-  name: InteleShare Namespaces and Accounts API
   tags:
-  - Namespaces
-  - Accounts
-  - Users
-  - Multi-Tenancy
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  - Namespace
+  properties:
+  - type: OpenAPI
+    url: openapi/intelerad-namespace-api-openapi.yml
+  - type: APIReference
+    url: https://access.dicomgrid.com/api/v3/api.html
+  - type: Documentation
+    url: https://www.intelerad.com/en/interoperability/
+  - type: APIReference
+    url: https://access.dicomgrid.com/api/v3/storage/storage_api.html
+  - type: Documentation
+    url: >-
+      https://www.intelerad.com/en/wp-content/uploads/sites/2/2024/05/InteleShare-3.24.2.0-HL7-Guide.pdf
+- aid: intelerad:intelerad-order-api
+  name: Intelerad Order API
+  description: The Order API from Intelerad — 2 operation(s) for order.
   humanURL: https://access.dicomgrid.com/api/v3/api.html
   baseURL: https://access.dicomgrid.com/api/v3
+  tags:
+  - Order
   properties:
-  - url: https://access.dicomgrid.com/api/v3/api.html
-    type: APIReference
-  - url: openapi/intelerad-openapi.yml
-    type: OpenAPI
-  description: Administer the multi-tenant structure of the platform - accounts,
-    namespaces (tenant scoping and access control), users, invitations, roles, and
-    API tokens. Includes session management (login/logout, OAuth, CSRF). Endpoints are
-    modeled from the public v3 Services API reference.
+  - type: OpenAPI
+    url: openapi/intelerad-order-api-openapi.yml
+  - type: APIReference
+    url: https://access.dicomgrid.com/api/v3/api.html
+  - type: Documentation
+    url: https://www.intelerad.com/en/interoperability/
+  - type: APIReference
+    url: https://access.dicomgrid.com/api/v3/storage/storage_api.html
+  - type: Documentation
+    url: >-
+      https://www.intelerad.com/en/wp-content/uploads/sites/2/2024/05/InteleShare-3.24.2.0-HL7-Guide.pdf
+- aid: intelerad:intelerad-patient-api
+  name: Intelerad Patient API
+  description: The Patient API from Intelerad — 2 operation(s) for patient.
+  humanURL: https://access.dicomgrid.com/api/v3/api.html
+  baseURL: https://access.dicomgrid.com/api/v3
+  tags:
+  - Patient
+  properties:
+  - type: OpenAPI
+    url: openapi/intelerad-patient-api-openapi.yml
+  - type: APIReference
+    url: https://access.dicomgrid.com/api/v3/api.html
+  - type: Documentation
+    url: https://www.intelerad.com/en/interoperability/
+  - type: APIReference
+    url: https://access.dicomgrid.com/api/v3/storage/storage_api.html
+  - type: Documentation
+    url: >-
+      https://www.intelerad.com/en/wp-content/uploads/sites/2/2024/05/InteleShare-3.24.2.0-HL7-Guide.pdf
+- aid: intelerad:intelerad-report-api
+  name: Intelerad Report API
+  description: The Report API from Intelerad — 1 operation(s) for report.
+  humanURL: https://access.dicomgrid.com/api/v3/api.html
+  baseURL: https://access.dicomgrid.com/api/v3
+  tags:
+  - Report
+  properties:
+  - type: OpenAPI
+    url: openapi/intelerad-report-api-openapi.yml
+  - type: APIReference
+    url: https://access.dicomgrid.com/api/v3/api.html
+  - type: Documentation
+    url: https://www.intelerad.com/en/interoperability/
+  - type: APIReference
+    url: https://access.dicomgrid.com/api/v3/storage/storage_api.html
+  - type: Documentation
+    url: >-
+      https://www.intelerad.com/en/wp-content/uploads/sites/2/2024/05/InteleShare-3.24.2.0-HL7-Guide.pdf
+- aid: intelerad:intelerad-session-api
+  name: Intelerad Session API
+  description: The Session API from Intelerad — 2 operation(s) for session.
+  humanURL: https://access.dicomgrid.com/api/v3/api.html
+  baseURL: https://access.dicomgrid.com/api/v3
+  tags:
+  - Session
+  properties:
+  - type: OpenAPI
+    url: openapi/intelerad-session-api-openapi.yml
+  - type: APIReference
+    url: https://access.dicomgrid.com/api/v3/api.html
+  - type: Documentation
+    url: https://www.intelerad.com/en/interoperability/
+  - type: APIReference
+    url: https://access.dicomgrid.com/api/v3/storage/storage_api.html
+  - type: Documentation
+    url: >-
+      https://www.intelerad.com/en/wp-content/uploads/sites/2/2024/05/InteleShare-3.24.2.0-HL7-Guide.pdf
+- aid: intelerad:intelerad-storage-api
+  name: Intelerad Storage API
+  description: The Storage API from Intelerad — 1 operation(s) for storage.
+  humanURL: https://access.dicomgrid.com/api/v3/api.html
+  baseURL: https://access.dicomgrid.com/api/v3
+  tags:
+  - Storage
+  properties:
+  - type: OpenAPI
+    url: openapi/intelerad-storage-api-openapi.yml
+  - type: APIReference
+    url: https://access.dicomgrid.com/api/v3/api.html
+  - type: Documentation
+    url: https://www.intelerad.com/en/interoperability/
+  - type: APIReference
+    url: https://access.dicomgrid.com/api/v3/storage/storage_api.html
+  - type: Documentation
+    url: >-
+      https://www.intelerad.com/en/wp-content/uploads/sites/2/2024/05/InteleShare-3.24.2.0-HL7-Guide.pdf
+- aid: intelerad:intelerad-study-api
+  name: Intelerad Study API
+  description: The Study API from Intelerad — 4 operation(s) for study.
+  humanURL: https://access.dicomgrid.com/api/v3/api.html
+  baseURL: https://access.dicomgrid.com/api/v3
+  tags:
+  - Study
+  properties:
+  - type: OpenAPI
+    url: openapi/intelerad-study-api-openapi.yml
+  - type: APIReference
+    url: https://access.dicomgrid.com/api/v3/api.html
+  - type: Documentation
+    url: https://www.intelerad.com/en/interoperability/
+  - type: APIReference
+    url: https://access.dicomgrid.com/api/v3/storage/storage_api.html
+  - type: Documentation
+    url: >-
+      https://www.intelerad.com/en/wp-content/uploads/sites/2/2024/05/InteleShare-3.24.2.0-HL7-Guide.pdf
+- aid: intelerad:intelerad-webhook-api
+  name: Intelerad Webhook API
+  description: The Webhook API from Intelerad — 1 operation(s) for webhook.
+  humanURL: https://access.dicomgrid.com/api/v3/api.html
+  baseURL: https://access.dicomgrid.com/api/v3
+  tags:
+  - Webhook
+  properties:
+  - type: OpenAPI
+    url: openapi/intelerad-webhook-api-openapi.yml
+  - type: APIReference
+    url: https://access.dicomgrid.com/api/v3/api.html
+  - type: Documentation
+    url: https://www.intelerad.com/en/interoperability/
+  - type: APIReference
+    url: https://access.dicomgrid.com/api/v3/storage/storage_api.html
+  - type: Documentation
+    url: >-
+      https://www.intelerad.com/en/wp-content/uploads/sites/2/2024/05/InteleShare-3.24.2.0-HL7-Guide.pdf
 common:
 - type: AgenticAccess
   url: agentic-access/intelerad-agentic-access.yml
