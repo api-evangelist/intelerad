@@ -1,0 +1,30 @@
+{
+  "provider": "intelerad",
+  "sources": [
+    "intelerad-hl7-api-openapi.yml",
+    "intelerad-namespace-api-openapi.yml",
+    "intelerad-order-api-openapi.yml",
+    "intelerad-patient-api-openapi.yml",
+    "intelerad-report-api-openapi.yml",
+    "intelerad-session-api-openapi.yml",
+    "intelerad-storage-api-openapi.yml",
+    "intelerad-study-api-openapi.yml",
+    "intelerad-webhook-api-openapi.yml"
+  ],
+  "outputs": [
+    "intelerad-hl7-api-openapi.yml",
+    "intelerad-namespace-api-openapi.yml",
+    "intelerad-order-api-openapi.yml",
+    "intelerad-patient-api-openapi.yml",
+    "intelerad-report-api-openapi.yml",
+    "intelerad-session-api-openapi.yml",
+    "intelerad-storage-api-openapi.yml",
+    "intelerad-study-api-openapi.yml",
+    "intelerad-webhook-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
