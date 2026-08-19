@@ -1,0 +1,197 @@
+{
+  "item": [
+    {
+      "id": "a511f61d-b481-4690-99bc-6ed23c003a7f",
+      "name": "Patient",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cd9eef1b-a47d-4df1-b744-3175281cf5c2",
+          "name": "List patient records within a namespace",
+          "request": {
+            "name": "List patient records within a namespace",
+            "description": {},
+            "url": {
+              "path": [
+                "patient",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4ddfe4cf-597a-44ae-b885-70ebdf156bb8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "patient",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ERROR\",\n  \"error_type\": \"string\",\n  \"error_subtype\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e1c0a3b-a669-4d56-b46f-e5f8349366a6",
+          "name": "Retrieve a patient record and demographics",
+          "request": {
+            "name": "Retrieve a patient record and demographics",
+            "description": {},
+            "url": {
+              "path": [
+                "patient",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2f685479-6f3c-4ac6-92f2-6ffc80d24b4c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "patient",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ERROR\",\n  \"error_type\": \"string\",\n  \"error_subtype\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://access.dicomgrid.com/api/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "sid"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "64aad7e0-ce8e-46cc-9d43-35a0fd2f619d",
+    "name": "InteleShare / Ambra v3 Services API (Modeled) HL7 Patient API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "MODELED OpenAPI for the Intelerad InteleShare / Ambra \"v3 Services\" public API (formerly Ambra Health / DICOM Grid). The v3 API is a documented public REST-like interface: clients POST (or GET) to RPC-style action endpoints under a resource namespace, and every response includes a `status` field of \"OK\" or \"ERROR\". Authentication uses a session id (`sid`) obtained from /session/login, HTTP Basic auth, or OAuth tokens for third-party integrations. DICOM instance access is also available over the DICOMweb standard (WADO-RS / QIDO-RS / STOW-RS).\nThis document is HONESTLY MODELED from the public API reference at https://access.dicomgrid.com/api/v3/api.html and the InteleShare HL7 Guide. Exact request/response schemas, required parameters, and per-endpoint permissions are defined by Intelerad's authoritative reference and vary by account entitlement; treat the paths below as a representative, not exhaustive or byte-exact, surface.\n\nContact Support:\n Name: Intelerad Medical Systems",
+      "type": "text/plain"
+    }
+  }
+}

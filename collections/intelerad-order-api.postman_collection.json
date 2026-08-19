@@ -1,0 +1,197 @@
+{
+  "item": [
+    {
+      "id": "9da2c375-4614-4aec-9705-41da4ab81af7",
+      "name": "Order",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2e827fcc-0e35-40f9-8501-566466151040",
+          "name": "List orders / scheduled procedures feeding the worklist",
+          "request": {
+            "name": "List orders / scheduled procedures feeding the worklist",
+            "description": {},
+            "url": {
+              "path": [
+                "order",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "54cfea27-75ba-4f03-bb3b-c31f05262f01",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ERROR\",\n  \"error_type\": \"string\",\n  \"error_subtype\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9f0ff121-e24f-4134-b26a-a6a62d04534b",
+          "name": "Create an order (often sourced from an inbound HL7 ORM message)",
+          "request": {
+            "name": "Create an order (often sourced from an inbound HL7 ORM message)",
+            "description": {},
+            "url": {
+              "path": [
+                "order",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "09b594cb-a836-413b-acf7-ec432c282720",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ERROR\",\n  \"error_type\": \"string\",\n  \"error_subtype\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://access.dicomgrid.com/api/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "sid"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "dc112f7b-eb75-429d-a056-5861c1a65555",
+    "name": "InteleShare / Ambra v3 Services API (Modeled) HL7 Order API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "MODELED OpenAPI for the Intelerad InteleShare / Ambra \"v3 Services\" public API (formerly Ambra Health / DICOM Grid). The v3 API is a documented public REST-like interface: clients POST (or GET) to RPC-style action endpoints under a resource namespace, and every response includes a `status` field of \"OK\" or \"ERROR\". Authentication uses a session id (`sid`) obtained from /session/login, HTTP Basic auth, or OAuth tokens for third-party integrations. DICOM instance access is also available over the DICOMweb standard (WADO-RS / QIDO-RS / STOW-RS).\nThis document is HONESTLY MODELED from the public API reference at https://access.dicomgrid.com/api/v3/api.html and the InteleShare HL7 Guide. Exact request/response schemas, required parameters, and per-endpoint permissions are defined by Intelerad's authoritative reference and vary by account entitlement; treat the paths below as a representative, not exhaustive or byte-exact, surface.\n\nContact Support:\n Name: Intelerad Medical Systems",
+      "type": "text/plain"
+    }
+  }
+}

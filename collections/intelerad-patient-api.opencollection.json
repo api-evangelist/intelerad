@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "InteleShare / Ambra v3 Services API (Modeled) HL7 Patient API",
+    "version": "v3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "sid",
+      "value": "{{sid}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Patient",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List patient records within a namespace",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.dicomgrid.com/api/v3/patient/list"
+          },
+          "docs": "List patient records within a namespace"
+        },
+        {
+          "info": {
+            "name": "Retrieve a patient record and demographics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.dicomgrid.com/api/v3/patient/get"
+          },
+          "docs": "Retrieve a patient record and demographics"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

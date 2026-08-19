@@ -1,0 +1,145 @@
+{
+  "item": [
+    {
+      "id": "d516b2ad-6ba6-429f-b564-1f5140d88296",
+      "name": "Storage",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f6127ee7-27fa-4ec3-8501-aa76eab75e7f",
+          "name": "Retrieve study image / pixel data from the Storage API",
+          "request": {
+            "name": "Retrieve study image / pixel data from the Storage API",
+            "description": {},
+            "url": {
+              "path": [
+                "storage",
+                "study",
+                ":namespace",
+                ":studyUid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "namespace",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "studyUid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "50915b1e-6de3-415a-bf45-1ee9eb4c64de",
+              "name": "Binary DICOM or rendered image payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storage",
+                    "study",
+                    ":namespace",
+                    ":studyUid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "namespace",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "studyUid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://access.dicomgrid.com/api/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "sid"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d91fa126-fb17-466d-96d3-6c51639db4ef",
+    "name": "InteleShare / Ambra v3 Services API (Modeled) HL7 Storage API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "MODELED OpenAPI for the Intelerad InteleShare / Ambra \"v3 Services\" public API (formerly Ambra Health / DICOM Grid). The v3 API is a documented public REST-like interface: clients POST (or GET) to RPC-style action endpoints under a resource namespace, and every response includes a `status` field of \"OK\" or \"ERROR\". Authentication uses a session id (`sid`) obtained from /session/login, HTTP Basic auth, or OAuth tokens for third-party integrations. DICOM instance access is also available over the DICOMweb standard (WADO-RS / QIDO-RS / STOW-RS).\nThis document is HONESTLY MODELED from the public API reference at https://access.dicomgrid.com/api/v3/api.html and the InteleShare HL7 Guide. Exact request/response schemas, required parameters, and per-endpoint permissions are defined by Intelerad's authoritative reference and vary by account entitlement; treat the paths below as a representative, not exhaustive or byte-exact, surface.\n\nContact Support:\n Name: Intelerad Medical Systems",
+      "type": "text/plain"
+    }
+  }
+}

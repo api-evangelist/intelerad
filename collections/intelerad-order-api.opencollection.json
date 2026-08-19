@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "InteleShare / Ambra v3 Services API (Modeled) HL7 Order API",
+    "version": "v3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "sid",
+      "value": "{{sid}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Order",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List orders / scheduled procedures feeding the worklist",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.dicomgrid.com/api/v3/order/list"
+          },
+          "docs": "List orders / scheduled procedures feeding the worklist"
+        },
+        {
+          "info": {
+            "name": "Create an order (often sourced from an inbound HL7 ORM message)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.dicomgrid.com/api/v3/order/add"
+          },
+          "docs": "Create an order (often sourced from an inbound HL7 ORM message)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

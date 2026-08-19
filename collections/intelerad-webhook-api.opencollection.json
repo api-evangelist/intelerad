@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "InteleShare / Ambra v3 Services API (Modeled) HL7 Webhook API",
+    "version": "v3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "sid",
+      "value": "{{sid}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Webhook",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Register a webhook for platform events",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.dicomgrid.com/api/v3/webhook/add"
+          },
+          "docs": "Register a webhook for platform events"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "InteleShare / Ambra v3 Services API (Modeled) HL7 Study API",
+    "version": "v3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "sid",
+      "value": "{{sid}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Study",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List studies visible to the session, with filtering and pagination",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.dicomgrid.com/api/v3/study/list"
+          },
+          "docs": "List studies visible to the session, with filtering and pagination"
+        },
+        {
+          "info": {
+            "name": "Retrieve a single study's metadata by uuid",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.dicomgrid.com/api/v3/study/get"
+          },
+          "docs": "Retrieve a single study's metadata by uuid"
+        },
+        {
+          "info": {
+            "name": "Share a study to another namespace, user, or patient",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.dicomgrid.com/api/v3/study/share"
+          },
+          "docs": "Share a study to another namespace, user, or patient"
+        },
+        {
+          "info": {
+            "name": "Delete a study",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.dicomgrid.com/api/v3/study/delete"
+          },
+          "docs": "Delete a study"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

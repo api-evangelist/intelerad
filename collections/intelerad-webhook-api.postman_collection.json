@@ -1,0 +1,123 @@
+{
+  "item": [
+    {
+      "id": "a8f3b51c-d991-4b51-9de8-b3a8180501de",
+      "name": "Webhook",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "809ce2a5-0892-4e44-ad4d-21ccac74f6fd",
+          "name": "Register a webhook for platform events",
+          "request": {
+            "name": "Register a webhook for platform events",
+            "description": {},
+            "url": {
+              "path": [
+                "webhook",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dcac0b9d-caf9-4723-a3b4-e3f39665f4a4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhook",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ERROR\",\n  \"error_type\": \"string\",\n  \"error_subtype\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://access.dicomgrid.com/api/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "sid"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b15b2743-b094-4241-97ba-fc925c84a3f1",
+    "name": "InteleShare / Ambra v3 Services API (Modeled) HL7 Webhook API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "MODELED OpenAPI for the Intelerad InteleShare / Ambra \"v3 Services\" public API (formerly Ambra Health / DICOM Grid). The v3 API is a documented public REST-like interface: clients POST (or GET) to RPC-style action endpoints under a resource namespace, and every response includes a `status` field of \"OK\" or \"ERROR\". Authentication uses a session id (`sid`) obtained from /session/login, HTTP Basic auth, or OAuth tokens for third-party integrations. DICOM instance access is also available over the DICOMweb standard (WADO-RS / QIDO-RS / STOW-RS).\nThis document is HONESTLY MODELED from the public API reference at https://access.dicomgrid.com/api/v3/api.html and the InteleShare HL7 Guide. Exact request/response schemas, required parameters, and per-endpoint permissions are defined by Intelerad's authoritative reference and vary by account entitlement; treat the paths below as a representative, not exhaustive or byte-exact, surface.\n\nContact Support:\n Name: Intelerad Medical Systems",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,345 @@
+{
+  "item": [
+    {
+      "id": "db823f4d-c010-4b98-b60f-a29e141c1c74",
+      "name": "Study",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "318b8793-5107-46c2-b99e-e3b269fb25ac",
+          "name": "List studies visible to the session, with filtering and pagination",
+          "request": {
+            "name": "List studies visible to the session, with filtering and pagination",
+            "description": {},
+            "url": {
+              "path": [
+                "study",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "527ad5ab-140c-4e71-b688-25b87737fa87",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "study",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ERROR\",\n  \"error_type\": \"string\",\n  \"error_subtype\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7a10e799-81bb-4c58-b9e4-72f9eec1e7d7",
+          "name": "Retrieve a single study's metadata by uuid",
+          "request": {
+            "name": "Retrieve a single study's metadata by uuid",
+            "description": {},
+            "url": {
+              "path": [
+                "study",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "16039a5f-b31e-42ee-ab3f-f4f458167278",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "study",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ERROR\",\n  \"error_type\": \"string\",\n  \"error_subtype\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e3a81be-f49b-4a22-808f-8012d3bb773a",
+          "name": "Share a study to another namespace, user, or patient",
+          "request": {
+            "name": "Share a study to another namespace, user, or patient",
+            "description": {},
+            "url": {
+              "path": [
+                "study",
+                "share"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fa8ceb03-5c88-4725-8ca3-b242f12ef286",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "study",
+                    "share"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ERROR\",\n  \"error_type\": \"string\",\n  \"error_subtype\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "71cd0c66-cdb6-4a2f-b551-224cf3744c51",
+          "name": "Delete a study",
+          "request": {
+            "name": "Delete a study",
+            "description": {},
+            "url": {
+              "path": [
+                "study",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "492d6597-9a72-4e30-a0d9-a7bd69380774",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "study",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ERROR\",\n  \"error_type\": \"string\",\n  \"error_subtype\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://access.dicomgrid.com/api/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "sid"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b24a3288-1c89-41cd-962c-92af457e567e",
+    "name": "InteleShare / Ambra v3 Services API (Modeled) HL7 Study API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "MODELED OpenAPI for the Intelerad InteleShare / Ambra \"v3 Services\" public API (formerly Ambra Health / DICOM Grid). The v3 API is a documented public REST-like interface: clients POST (or GET) to RPC-style action endpoints under a resource namespace, and every response includes a `status` field of \"OK\" or \"ERROR\". Authentication uses a session id (`sid`) obtained from /session/login, HTTP Basic auth, or OAuth tokens for third-party integrations. DICOM instance access is also available over the DICOMweb standard (WADO-RS / QIDO-RS / STOW-RS).\nThis document is HONESTLY MODELED from the public API reference at https://access.dicomgrid.com/api/v3/api.html and the InteleShare HL7 Guide. Exact request/response schemas, required parameters, and per-endpoint permissions are defined by Intelerad's authoritative reference and vary by account entitlement; treat the paths below as a representative, not exhaustive or byte-exact, surface.\n\nContact Support:\n Name: Intelerad Medical Systems",
+      "type": "text/plain"
+    }
+  }
+}
