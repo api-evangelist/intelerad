@@ -15,6 +15,18 @@ description: Intelerad Medical Systems is an enterprise medical imaging company 
   EHR/RIS integrations (Epic, Cerner, Athena). Core PACS/RIS APIs are partner- and
   contract-gated; the InteleShare / Ambra v3 API is the publicly documented developer
   surface.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: enterprise
   onboarding: self-serve
