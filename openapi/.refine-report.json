@@ -1,15 +1,7 @@
 {
   "provider": "intelerad",
   "sources": [
-    "intelerad-hl7-api-openapi.yml",
-    "intelerad-namespace-api-openapi.yml",
-    "intelerad-order-api-openapi.yml",
-    "intelerad-patient-api-openapi.yml",
-    "intelerad-report-api-openapi.yml",
-    "intelerad-session-api-openapi.yml",
-    "intelerad-storage-api-openapi.yml",
-    "intelerad-study-api-openapi.yml",
-    "intelerad-webhook-api-openapi.yml"
+    "_original/intelerad-openapi.yml"
   ],
   "outputs": [
     "intelerad-hl7-api-openapi.yml",
@@ -25,6 +17,20 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "intelerad-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "intelerad-hl7-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "intelerad-namespace-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "intelerad-order-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "intelerad-patient-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "intelerad-report-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "intelerad-session-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "intelerad-storage-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "intelerad-study-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "intelerad-webhook-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

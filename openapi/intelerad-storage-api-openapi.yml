@@ -1,11 +1,9 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: InteleShare / Ambra v3 Services API (Modeled) HL7 Storage API
+  title: InteleShare / Ambra v3 Services API (Modeled) Storage API
   version: v3
   x-endpoints-modeled: true
-  description: 'MODELED OpenAPI for the Intelerad InteleShare / Ambra "v3 Services" public API (formerly Ambra Health / DICOM Grid). The v3 API is a documented public REST-like interface: clients POST (or GET) to RPC-style action endpoints under a resource namespace, and every response includes a `status` field of "OK" or "ERROR". Authentication uses a session id (`sid`) obtained from /session/login, HTTP Basic auth, or OAuth tokens for third-party integrations. DICOM instance access is also available over the DICOMweb standard (WADO-RS / QIDO-RS / STOW-RS).
-
-    This document is HONESTLY MODELED from the public API reference at https://access.dicomgrid.com/api/v3/api.html and the InteleShare HL7 Guide. Exact request/response schemas, required parameters, and per-endpoint permissions are defined by Intelerad''s authoritative reference and vary by account entitlement; treat the paths below as a representative, not exhaustive or byte-exact, surface.'
+  description: MODELED OpenAPI for the Intelerad InteleShare / Ambra "v3 Services" public API (formerly Ambra Health / DICOM Grid).
   contact:
     name: Intelerad Medical Systems
     url: https://www.intelerad.com/en/contact-us/
@@ -38,6 +36,8 @@ paths:
       responses:
         '200':
           description: Binary DICOM or rendered image payload
+      operationId: getStorageStudyByNamespaceByStudyUid
+      x-operation-id-source: derived
 components:
   securitySchemes:
     sid:
