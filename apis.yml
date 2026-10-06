@@ -55,7 +55,7 @@ tags:
 - Interoperability
 - Image Exchange
 created: '2026-07-05'
-modified: '2026-07-05'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: intelerad:intelerad-hl7-api
@@ -234,6 +234,8 @@ apis:
     url: >-
       https://www.intelerad.com/en/wp-content/uploads/sites/2/2024/05/InteleShare-3.24.2.0-HL7-Guide.pdf
 common:
+- url: https://www.intelerad.com/en/feed/
+  type: BlogRSS
 - type: AgenticAccess
   url: agentic-access/intelerad-agentic-access.yml
 - type: TrustCenter
