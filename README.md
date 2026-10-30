@@ -1,4 +1,4 @@
-# Intelerad (intelerad)
+# Intelerad
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,110 +64,133 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Intelerad Medical Systems is an enterprise medical imaging company. Its platform spans diagnostic PACS (**IntelePACS**), the **InteleViewer** / zero-footprint web-based DICOM viewer, a vendor-neutral archive (**VNA**), and the cloud image-exchange platform **InteleShare** - the product formed after Intelerad **acquired Ambra Health (Ambra Image Exchange / DICOM Grid) in 2021**.
+Intelerad Medical Systems is an enterprise medical imaging company whose platform spans diagnostic PACS (IntelePACS), the InteleViewer / zero-footprint web viewer, a vendor-neutral archive (VNA), and the cloud image-exchange platform InteleShare - the product formed after Intelerad acquired Ambra Health (Ambra Image Exchange) in 2021. The InteleShare / Ambra platform exposes a documented public "v3 Services" REST-like API plus a Storage API for programmatically managing DICOM studies, patients, orders, reports, HL7 message flows, routing, and multi-tenant namespaces. Integration is built on medical-imaging interoperability standards - DICOM and DICOMweb (WADO / QIDO / STOW), HL7 v2 (ORM, ORU, ADT), and FHIR - with a Gateway that routes DICOM and HL7 between on-premise systems and the cloud, plus EHR/RIS integrations (Epic, Cerner, Athena). Core PACS/RIS APIs are partner- and contract-gated; the InteleShare / Ambra v3 API is the publicly documented developer surface.
 
-The InteleShare / Ambra platform exposes a documented public **"v3 Services" REST-like API** plus a **Storage API** for programmatically managing DICOM studies, patients, orders, radiology reports, HL7 message flows, routing, webhooks, and multi-tenant namespaces. Integration is built on medical-imaging interoperability standards - **DICOM and DICOMweb (WADO-RS / QIDO-RS / STOW-RS)**, **HL7 v2 (ORM orders, ORU results, ADT demographics)**, and **FHIR** - with a **Gateway** that routes DICOM and HL7 between on-premise systems and the cloud, and EHR/RIS integrations (Epic, Cerner, Athena).
+**Areas:** Medical Imaging · PACS · Enterprise Imaging · Radiology · DICOM · DICOMweb · HL7 · FHIR · Healthcare · Interoperability · Image Exchange
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/intelerad/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/intelerad/refs/heads/main/apis.yml)
+## Intelerad on APIs.io
 
-## Access Model (Read This First)
+Everything profiled for Intelerad is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/intelerad/](https://apis.io/providers/intelerad/)** — or go straight to one of the APIs or properties below.
 
-- The **InteleShare / Ambra v3 Services API** and **Storage API** are **publicly documented** at [access.dicomgrid.com/api/v3/api.html](https://access.dicomgrid.com/api/v3/api.html). They are RPC-style: clients POST (or GET) to action endpoints under a resource namespace, and every response carries a `status` field of `OK` or `ERROR`. Authentication uses a session id (`sid`) from `/session/login`, HTTP Basic auth, or OAuth tokens.
-- **Actual API usage is account- and contract-gated.** You need a provisioned InteleShare / Ambra account and appropriate role/namespace permissions; there is no open, self-service sign-up or public pricing for API access.
-- The **core PACS / RIS / viewer APIs** (IntelePACS, InteleViewer, InteleRIS) are **partner- and contract-gated** with no open public reference; they are reached through Intelerad's Gateway and standards-based interfaces (DICOM, DICOMweb, HL7, FHIR) rather than a public developer portal.
-- The OpenAPI in this repo is **honestly modeled** (`x-endpoints-modeled: true`) from the public v3 reference and the InteleShare HL7 Guide. Paths are representative, not byte-exact; treat Intelerad's own reference as authoritative.
+### APIs (9)
 
-## Tags
+- [Intelerad HL7 API](https://apis.io/apis/intelerad/intelerad-hl7-api/) — The HL7 API from Intelerad — 1 operation(s) for hl7.
+- [Intelerad Namespace API](https://apis.io/apis/intelerad/intelerad-namespace-api/) — The Namespace API from Intelerad — 1 operation(s) for namespace.
+- [Intelerad Order API](https://apis.io/apis/intelerad/intelerad-order-api/) — The Order API from Intelerad — 2 operation(s) for order.
+- [Intelerad Patient API](https://apis.io/apis/intelerad/intelerad-patient-api/) — The Patient API from Intelerad — 2 operation(s) for patient.
+- [Intelerad Report API](https://apis.io/apis/intelerad/intelerad-report-api/) — The Report API from Intelerad — 1 operation(s) for report.
+- [Intelerad Session API](https://apis.io/apis/intelerad/intelerad-session-api/) — The Session API from Intelerad — 2 operation(s) for session.
+- [Intelerad Storage API](https://apis.io/apis/intelerad/intelerad-storage-api/) — The Storage API from Intelerad — 1 operation(s) for storage.
+- [Intelerad Study API](https://apis.io/apis/intelerad/intelerad-study-api/) — The Study API from Intelerad — 4 operation(s) for study.
+- [Intelerad Webhook API](https://apis.io/apis/intelerad/intelerad-webhook-api/) — The Webhook API from Intelerad — 1 operation(s) for webhook.
 
-- Medical Imaging
-- PACS
-- Enterprise Imaging
-- Radiology
-- DICOM
-- DICOMweb
-- HL7
-- FHIR
-- Healthcare
-- Interoperability
-- Image Exchange
+### Published properties
 
-## Timestamps
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- **Created:** 2026-07-05
-- **Modified:** 2026-07-05
+#### Agentic access (1)
 
-## APIs
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Logical APIs modeled from the public InteleShare / Ambra v3 Services and Storage API reference:
+- [Intelerad Agentic Access](https://apis.io/agentic-access/intelerad/intelerad-agentic-access/)
 
-### InteleShare Studies API
+#### Collections (9)
 
-Manage DICOM studies in the cloud - list, get, share, route, tag, and delete studies, retrieve metadata and images, push/pull pixel data. Instance access is also available over DICOMweb (WADO-RS retrieve, QIDO-RS query, STOW-RS store).
+Postman and Open Collection request collections.
 
-- **API Reference:** [https://access.dicomgrid.com/api/v3/api.html](https://access.dicomgrid.com/api/v3/api.html)
-- **Base URL:** `https://access.dicomgrid.com/api/v3`
+- [InteleShare / Ambra v3 Services API (Modeled) HL7 API](https://apis.io/collections/intelerad/open-intelerad-hl7-api/)
+- [InteleShare / Ambra v3 Services API (Modeled) HL7 Namespace API](https://apis.io/collections/intelerad/open-intelerad-namespace-api/)
+- [InteleShare / Ambra v3 Services API (Modeled) HL7 Order API](https://apis.io/collections/intelerad/open-intelerad-order-api/)
+- [InteleShare / Ambra v3 Services API (Modeled) HL7 Patient API](https://apis.io/collections/intelerad/open-intelerad-patient-api/)
+- [InteleShare / Ambra v3 Services API (Modeled) HL7 Report API](https://apis.io/collections/intelerad/open-intelerad-report-api/)
+- [InteleShare / Ambra v3 Services API (Modeled) HL7 Session API](https://apis.io/collections/intelerad/open-intelerad-session-api/)
+- [InteleShare / Ambra v3 Services API (Modeled) HL7 Storage API](https://apis.io/collections/intelerad/open-intelerad-storage-api/)
+- [InteleShare / Ambra v3 Services API (Modeled) HL7 Study API](https://apis.io/collections/intelerad/open-intelerad-study-api/)
+- [InteleShare / Ambra v3 Services API (Modeled) HL7 Webhook API](https://apis.io/collections/intelerad/open-intelerad-webhook-api/)
 
-### InteleShare Storage API
+#### Security (3)
 
-The raw DICOM image / study binary layer - upload (STOW-style ingest), retrieve rendered or original images and frames, wrap/unwrap DICOM, and manage thumbnails.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **API Reference:** [https://access.dicomgrid.com/api/v3/storage/storage_api.html](https://access.dicomgrid.com/api/v3/storage/storage_api.html)
-- **Base URL:** `https://access.dicomgrid.com/api/v3/storage`
+- [Intelerad Authentication](https://apis.io/security/intelerad/intelerad-authentication/)
+- [Intelerad Domain Security](https://apis.io/security/intelerad/intelerad-domain-security/)
+- [Intelerad Trust Center](https://apis.io/security/intelerad/intelerad-trust-center/)
 
-### InteleShare Patients API
+#### Plans and pricing (1)
 
-Create, list, get, and update patient records and demographics, manage PHI and patient-portal (PHR) access, and reconcile / normalize patient identity across sources.
+Published plans, tiers and prices.
 
-- **Base URL:** `https://access.dicomgrid.com/api/v3`
+- [Intelerad Plans Pricing](https://apis.io/plans/intelerad/intelerad-plans-pricing/)
 
-### InteleShare Orders and Worklist API
+#### Rate limits (1)
 
-Manage healthcare orders and scheduled procedures that drive the radiology worklist - create, list, get, update, and cancel orders, typically fed by inbound HL7 ORM order messages.
+Published request limits.
 
-- **Base URL:** `https://access.dicomgrid.com/api/v3`
+- [Intelerad Rate Limits](https://apis.io/rate-limits/intelerad/intelerad-rate-limits/)
 
-### InteleShare Reports API
+#### FinOps (1)
 
-Create, list, get, and publish radiology reports and report templates attached to a study, and exchange results via HL7 ORU result messages.
+What the API costs to run, by operation.
 
-- **Base URL:** `https://access.dicomgrid.com/api/v3`
+- [Intelerad Finops](https://apis.io/finops/intelerad/intelerad-finops/)
 
-### InteleShare HL7 Integration API
+## Where to find this API
 
-Configure HL7 message templates and transforms and exchange clinical data via the InteleShare Gateway - inbound and outbound ORM (orders), ORU (results/reports), and ADT (demographics) messages.
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- **HL7 Guide:** [InteleShare 3.24.2.0 HL7 Guide (PDF)](https://www.intelerad.com/en/wp-content/uploads/sites/2/2024/05/InteleShare-3.24.2.0-HL7-Guide.pdf)
-- **Base URL:** `https://access.dicomgrid.com/api/v3`
-
-### InteleShare Webhooks and Routing API
-
-Register webhooks for platform events and manage study distribution - routes, destinations (query/retrieve targets), and storage nodes that move studies between the cloud and connected DICOM systems.
-
-- **Base URL:** `https://access.dicomgrid.com/api/v3`
-
-### InteleShare Namespaces and Accounts API
-
-Administer the multi-tenant structure - accounts, namespaces (tenant scoping and access control), users, invitations, roles, and API tokens, plus session management (login/logout, OAuth, CSRF).
-
-- **Base URL:** `https://access.dicomgrid.com/api/v3`
-
-## Standards
-
-- **DICOM / DICOMweb** - WADO-RS (retrieve), QIDO-RS (query), STOW-RS (store); zero-footprint FDA-cleared HTML5 viewer.
-- **HL7 v2** - ORM (orders), ORU (results/reports), ADT (patient demographics) via the Gateway.
-- **FHIR** - modern REST interoperability for clinical data exchange.
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/intelerad-medical-systems)
 - [Website](https://www.intelerad.com/)
-- [Documentation (v3 API Reference)](https://access.dicomgrid.com/api/v3/api.html)
-- [Plans](plans/intelerad-plans-pricing.yml)
-- [Rate Limits](rate-limits/intelerad-rate-limits.yml)
-- [Fin Ops](finops/intelerad-finops.yml)
+- [Documentation](https://access.dicomgrid.com/api/v3/api.html)
 - [Blog](https://www.intelerad.com/en/blog/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 26.5** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 42.2 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 31.0 |
+| Access clarity | 13.2 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 13.3** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/intelerad/](https://apis.io/providers/intelerad/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Intelerad: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/intelerad/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
